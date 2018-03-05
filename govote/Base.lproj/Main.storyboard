@@ -26,7 +26,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Search Location"/>
                                 <connections>
-                                    <segue destination="gcq-yJ-wwc" kind="show" id="5Cb-xa-ZdE"/>
+                                    <segue destination="gcq-yJ-wwc" kind="show" identifier="searchLocationSegue" id="5Cb-xa-ZdE"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="109" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="K1b-if-mLa">
@@ -132,6 +132,9 @@
                                                     <rect key="frame" x="270" y="17" width="65" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Fav"/>
+                                                    <connections>
+                                                        <action selector="addFavWithSender:" destination="gcq-yJ-wwc" eventType="touchDown" id="DVs-y2-VIj"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ejY-AB-bU5" userLabel="Name Label">
                                                     <rect key="frame" x="118" y="65" width="217" height="30"/>

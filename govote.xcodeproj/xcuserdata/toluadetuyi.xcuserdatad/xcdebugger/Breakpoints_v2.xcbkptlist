@@ -10,13 +10,61 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "govote/SearchViewController.swift"
-            timestampString = "541951134.663165"
+            timestampString = "541956306.463244"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
             landmarkName = "retrieveData(searchTerm:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "govote/ViewController.swift"
+            timestampString = "541962741.489199"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "tableView(_:didSelectRowAt:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "govote.ViewController.displayUserImage (Swift.Int, locationCell : govote.LocTableViewCell) -&gt; ()"
+                  moduleName = "govote"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/toluadetuyi/Documents/ios%20projects/govote/govote/ViewController.swift"
+                  timestampString = "541957846.034713"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "292">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "govote.ViewController.(displayUserImage (Swift.Int, locationCell : govote.LocTableViewCell) -&gt; ()).(closure #1)"
+                  moduleName = "govote"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/toluadetuyi/Documents/ios%20projects/govote/govote/ViewController.swift"
+                  timestampString = "541957846.0377001"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "27">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
