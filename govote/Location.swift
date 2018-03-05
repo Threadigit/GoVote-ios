@@ -12,9 +12,11 @@ class Location{
     
     var id: Int = 0
     var name:String = ""
-    var imgURL:String = "https://tech-wheel.herokuapp.com/images/techwheel_logo.png"
+     var area: String = "Lagos"
+    //var imgURL:String = "https://tech-wheel.herokuapp.com/images/techwheel_logo.png"
+    var imgURL: String = ""
     var address: String = ""
-    var area: String = "Lagos"
+   
     var latitude: String = ""
     var longitude: String = ""
     var confirmed: String = ""
@@ -26,6 +28,7 @@ class Location{
         self.id = id
         self.name = name
         self.area = area
+        self.imgURL = "https://maps.googleapis.com/maps/api/staticmap?center=\(area),+Nigeria&zoom=13&scale=1&size=100x100&maptype=roadmap&format=png&visual_refresh=true"
     }
     
 }
