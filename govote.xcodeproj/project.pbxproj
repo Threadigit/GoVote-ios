@@ -15,6 +15,9 @@
 		5CAF61482048C7C300FA807A /* LocTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF61472048C7C300FA807A /* LocTableViewCell.swift */; };
 		5CAF614A2048C9BC00FA807A /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF61492048C9BC00FA807A /* Location.swift */; };
 		5CD5069A204B43800056985E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD50699204B43800056985E /* SearchViewController.swift */; };
+		5CD5069C204D6A450056985E /* HttpHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD5069B204D6A450056985E /* HttpHandler.swift */; };
+		5CD5069E204D75A60056985E /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD5069D204D75A60056985E /* JSONParser.swift */; };
+		5CD506A0204D78380056985E /* LocationdataProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD5069F204D78380056985E /* LocationdataProcessor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		5CAF61472048C7C300FA807A /* LocTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocTableViewCell.swift; sourceTree = "<group>"; };
 		5CAF61492048C9BC00FA807A /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		5CD50699204B43800056985E /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		5CD5069B204D6A450056985E /* HttpHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpHandler.swift; sourceTree = "<group>"; };
+		5CD5069D204D75A60056985E /* JSONParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
+		5CD5069F204D78380056985E /* LocationdataProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationdataProcessor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +75,9 @@
 				5CAF61472048C7C300FA807A /* LocTableViewCell.swift */,
 				5CAF61492048C9BC00FA807A /* Location.swift */,
 				5CD50699204B43800056985E /* SearchViewController.swift */,
+				5CD5069B204D6A450056985E /* HttpHandler.swift */,
+				5CD5069D204D75A60056985E /* JSONParser.swift */,
+				5CD5069F204D78380056985E /* LocationdataProcessor.swift */,
 			);
 			path = govote;
 			sourceTree = "<group>";
@@ -146,9 +155,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CD5069A204B43800056985E /* SearchViewController.swift in Sources */,
+				5CD506A0204D78380056985E /* LocationdataProcessor.swift in Sources */,
 				5CAF614A2048C9BC00FA807A /* Location.swift in Sources */,
+				5CD5069E204D75A60056985E /* JSONParser.swift in Sources */,
 				5CAF61382048C40700FA807A /* ViewController.swift in Sources */,
 				5CAF61482048C7C300FA807A /* LocTableViewCell.swift in Sources */,
+				5CD5069C204D6A450056985E /* HttpHandler.swift in Sources */,
 				5CAF61362048C40700FA807A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

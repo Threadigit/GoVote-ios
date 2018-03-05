@@ -18,7 +18,42 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBAction func search(sender: UIButton){
         
         print("Searching...")
+        var searchTerm = searchText.text!
+        
+        if searchTerm.characters.count > 2 {
+            
+            retrieveData(searchTerm: searchTerm)
+            
+        }
     }
+    
+    func retrieveData(searchTerm:String){
+        
+        let api = "https://api.govote.org.ng/search?key=k9ihbvse57fvsujbsvsi5362WE$NFD2&query=\(searchTerm)"
+        HttpHandler.getJSON(urlString: api, completionhandler: parseJSONData)
+        
+    }
+    
+    func parseJSONData(data : Data?) -> Void {
+        
+        print("parse data")
+        if let data = data {
+            
+            let object = JSONParser.parse(data: data)
+            
+            if let object = object {
+                
+                self.searchResults = LocationdataProcessor.mapJsonToLocation(object: object,locKeys: "data")
+                
+                DispatchQueue.main.async {
+                    self.locationTable.reloadData()
+                }
+                
+            }
+        }
+        
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return searchResults.count

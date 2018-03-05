@@ -14,7 +14,7 @@ class LocTableViewCell: UITableViewCell {
     @IBOutlet var locationName : UILabel!
     @IBOutlet var locationArea : UILabel!
     @IBOutlet var favBtn: UIButton!
-    
+     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
