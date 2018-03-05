@@ -13,6 +13,8 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet var locationTable: UITableView!
     @IBOutlet var searchText: UITextField!
     
+    weak var delegate: ViewController!
+    
     var searchResults: [Location] = []
     
     @IBAction func search(sender: UIButton){
@@ -25,6 +27,13 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             retrieveData(searchTerm: searchTerm)
             
         }
+    }
+    
+    @IBAction func addFav(sender: UIButton){
+        
+        self.delegate.myLocations.append(searchResults[sender.tag])
+        print("item selected is: \(sender.tag)")
+        
     }
     
     func retrieveData(searchTerm:String){
@@ -70,7 +79,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
-        return 0.1
+        return 0
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -85,6 +94,40 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         displayUserImage(index,locationCell: locationCell)
         return locationCell
         
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let index: Int = indexPath.row
+        
+        let id = searchResults[index].id
+        let name = searchResults[index].name
+        let area = searchResults[index].area
+        
+        let location: Location = Location(id: id, name: name, area: area)
+        
+        showLocationAlert(message: location.area)
+        
+    }
+    
+    func showLocationAlert(message: String){
+        
+        let alertController = UIAlertController(title: "PVC Location", message: message, preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action:UIAlertAction!) in
+            
+            alertController.dismiss(animated: true, completion: nil)
+           
+        }
+        alertController.addAction(cancelAction)
+        
+        let OKAction = UIAlertAction(title: "View Direction", style: .default) { (action:UIAlertAction!) in
+            print("open map");
+            //Call another alert here
+        }
+        alertController.addAction(OKAction)
+        
+        self.present(alertController, animated: true, completion:nil)
     }
     
     func displayUserImage(_ row:Int,locationCell:LocTableViewCell){
