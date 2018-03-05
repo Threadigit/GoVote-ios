@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegate {
 
@@ -29,6 +30,46 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
         locationCell.locationArea?.text = myLocations[index].area
         displayUserImage(index,locationCell: locationCell)
         return locationCell
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let index: Int = indexPath.row
+        
+        let id = myLocations[index].id
+        let name = myLocations[index].name
+        let area = myLocations[index].area
+        
+        let location: Location = Location(id: id, name: name, area: area)
+        
+        showLocationAlert(message: location.area)
+        
+    }
+    
+    func showLocationAlert(message: String){
+        
+        let alertController = UIAlertController(title: "PVC Location", message: message, preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action:UIAlertAction!) in
+            
+            alertController.dismiss(animated: true, completion: nil)
+            
+        }
+        alertController.addAction(cancelAction)
+        
+        let OKAction = UIAlertAction(title: "View Direction", style: .default) { (action:UIAlertAction!) in
+            print("open map");
+            //Call another alert here
+        }
+        alertController.addAction(OKAction)
+        
+        self.present(alertController, animated: true, completion:nil)
+    }
+    
+    func showMapDirection(){
+        
+        
         
     }
     
@@ -60,17 +101,19 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
         
         locTableView?.reloadData()
         
-        if(myLocations.count == 0){
+        navigationItem.title = "GoVote Favorites"
             
-            let loc: Location = Location(id: 1, name: "Lagos", area: "Maryland")
-            myLocations.append(loc)
-            myLocations.append(loc)
-            myLocations.append(loc)
+        super.viewWillAppear(animated)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "searchLocationSegue"{
+            
+            let controller = segue.destination as! SearchViewController
+            controller.delegate = self
             
         }
-        
-        navigationItem.title = "GoVote"
-        super.viewWillAppear(animated)
     }
     
     override func viewDidLoad() {
