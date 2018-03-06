@@ -9,11 +9,40 @@
 import UIKit
 import MapKit
 
-class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
 
     var myLocations: [Location] = []
     
     @IBOutlet var locTableView: UITableView!
+    
+    lazy var searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: 200, height: 20))
+    
+    func retrieveData(searchTerm:String){
+        
+        let api = "https://api.govote.org.ng/search?key=k9ihbvse57fvsujbsvsi5362WE$NFD2&query=\(searchTerm)"
+        HttpHandler.getJSON(urlString: api, completionhandler: parseJSONData)
+        
+    }
+    
+    func parseJSONData(data : Data?) -> Void {
+        
+        print("parse data")
+        if let data = data {
+            
+            let object = JSONParser.parse(data: data)
+            
+            if let object = object {
+                
+                self.myLocations = LocationdataProcessor.mapJsonToLocation(object: object,locKeys: "data")
+                
+                DispatchQueue.main.async {
+                    self.locTableView.reloadData()
+                }
+                
+            }
+        }
+        
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -40,10 +69,10 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
         let id = myLocations[index].id
         let name = myLocations[index].name
         let area = myLocations[index].area
-        
-        let location: Location = Location(id: id, name: name, area: area)
-        
-        showLocationAlert(message: location.area)
+         let address = myLocations[index].address
+        let location: Location = Location(id: id, name: name, area: area, address: address)
+        location.address = address
+        showLocationAlert(message: location.address)
         
     }
     
@@ -97,11 +126,24 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
         }).resume()
     }
     
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        if searchText.characters.count > 2 {
+            
+            retrieveData(searchTerm: searchText)
+            
+        }else if searchText.characters.count<1 {
+            
+            retrieveData(searchTerm: "lagos")
+        }
+    }
+  
     override func viewWillAppear(_ animated: Bool) {
         
         locTableView?.reloadData()
         
-        navigationItem.title = "GoVote Favorites"
+        navigationItem.title = "PVC Locations"
+        
             
         super.viewWillAppear(animated)
     }
@@ -119,6 +161,14 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        retrieveData(searchTerm: "lagos")
+        searchBar.placeholder = "Search for available PVC location"
+        searchBar.delegate = self
+        searchBar.prompt = "PVC Locations"
+        searchBar.showsScopeBar = true
+        searchBar.tintColor = .green
+    
+        navigationItem.titleView = searchBar
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -127,7 +177,12 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        
+        return .lightContent
+        
+    }
 
 }
 
