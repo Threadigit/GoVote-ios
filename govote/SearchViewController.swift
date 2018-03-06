@@ -103,10 +103,12 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let id = searchResults[index].id
         let name = searchResults[index].name
         let area = searchResults[index].area
+        let address = searchResults[index].address
         
-        let location: Location = Location(id: id, name: name, area: area)
+        let location: Location = Location(id: id, name: name, area: area, address: address)
+        location.address = address
         
-        showLocationAlert(message: location.area)
+        showLocationAlert(message: location.address)
         
     }
     
