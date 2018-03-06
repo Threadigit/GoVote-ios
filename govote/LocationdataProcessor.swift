@@ -21,14 +21,15 @@ class LocationdataProcessor{
             
             guard let id = location["id"] as? Int,
                 let area = location["area"] as? String,
+                let address = location["address"] as? String,
                 //let latitude = location["latitude"] as? String,
                 //let longitude = location["longitude"] as? String,
                let name = location["name"] as? String
             else{ continue }
             
-            print(name)
-            let locationClass = Location(id: id,name:name,area:"Lagos")
-            locationClass.area = area
+            print(address)
+            let locationClass = Location(id: id,name:name,area:area,address:address)
+            
             //locationClass.latitude = latitude
             //locationClass.longitude = longitude
             mapedLocs.append(locationClass)
