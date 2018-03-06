@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C16BBFA204E1D9300A251D8 /* WelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C16BBF9204E1D9300A251D8 /* WelcomeController.swift */; };
 		5CAF61362048C40700FA807A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF61352048C40700FA807A /* AppDelegate.swift */; };
 		5CAF61382048C40700FA807A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF61372048C40700FA807A /* ViewController.swift */; };
 		5CAF613B2048C40700FA807A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CAF61392048C40700FA807A /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5C16BBF9204E1D9300A251D8 /* WelcomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeController.swift; sourceTree = "<group>"; };
 		5CAF61322048C40700FA807A /* govote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = govote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CAF61352048C40700FA807A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5CAF61372048C40700FA807A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				5CD5069B204D6A450056985E /* HttpHandler.swift */,
 				5CD5069D204D75A60056985E /* JSONParser.swift */,
 				5CD5069F204D78380056985E /* LocationdataProcessor.swift */,
+				5C16BBF9204E1D9300A251D8 /* WelcomeController.swift */,
 			);
 			path = govote;
 			sourceTree = "<group>";
@@ -160,6 +163,7 @@
 				5CD5069E204D75A60056985E /* JSONParser.swift in Sources */,
 				5CAF61382048C40700FA807A /* ViewController.swift in Sources */,
 				5CAF61482048C7C300FA807A /* LocTableViewCell.swift in Sources */,
+				5C16BBFA204E1D9300A251D8 /* WelcomeController.swift in Sources */,
 				5CD5069C204D6A450056985E /* HttpHandler.swift in Sources */,
 				5CAF61362048C40700FA807A /* AppDelegate.swift in Sources */,
 			);
