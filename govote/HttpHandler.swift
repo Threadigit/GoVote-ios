@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class HttpHandler{
     
@@ -43,6 +44,30 @@ class HttpHandler{
         }
         task.resume()
         
+    }
+    
+    static func displayUserImage(imageURL:String, imageView:UIImageView){
+        
+      
+        
+        URLSession.shared.dataTask(with: URL(string: imageURL)!,completionHandler:{(
+            data, response, error)-> Void in
+            
+            if error != nil{
+                
+                print(error!)
+                
+            }else{
+                
+                DispatchQueue.main.async (execute: {
+                    
+                    let image = UIImage(data: data!)
+                    imageView.image = image
+                    
+                })
+                
+            }
+        }).resume()
     }
     
 }
