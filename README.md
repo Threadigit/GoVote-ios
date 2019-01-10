@@ -1,6 +1,6 @@
 # GoVote-ios
 
-An easy to use Android PVCs location finder that helps Nigerians get ready to vote. .
+An easy to use iOS PVCs location finder that helps Nigerians get ready to vote. .
 
 ## Project Status
 
